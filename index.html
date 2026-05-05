@@ -12,12 +12,38 @@
             padding: 20px;
             text-align: center;
         }
-        h1 { color: #D9B98F; }
-        a { color: #C9A96E; text-decoration: none; }
+        h1 { color: #D9B98F; margin-bottom: 30px; }
+        .links { margin-top: 20px; }
+        .links a {
+            display: block;
+            padding: 16px 24px;
+            margin: 12px 0;
+            background: #fff;
+            border-radius: 12px;
+            color: #C9A96E;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        .version {
+            margin-top: 40px;
+            color: #999;
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
     <h1>🖼️ WorldArt Support</h1>
-    <p><a href="privacy-policy.html">Privacy Policy / 隐私政策</a></p>
+    <div class="links">
+        <a href="/privacy/">🔒 Privacy Policy / 隐私政策</a>
+        <a href="/support/">💬 Technical Support / 技术支持</a>
+    </div>
+    <p class="version">Version 1.11.3 &middot; Last updated May 5, 2026</p>
 </body>
 </html>

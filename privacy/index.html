@@ -65,6 +65,25 @@
         li {
             margin-bottom: 8px;
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #f9f3e8;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: #fafaf5;
+        }
         .highlight {
             background: #f9f3e8;
             padding: 15px 20px;
@@ -119,7 +138,7 @@
     <div class="container">
         <div class="header">
             <h1>🖼️ WorldArt Privacy Policy</h1>
-            <p class="subtitle">Completely Offline & Privacy-Focused</p>
+            <p class="subtitle">Completely Offline &amp; Privacy-Focused</p>
         </div>
 
         <div class="content">
@@ -129,71 +148,126 @@
             </p>
 
             <h2><span class="section-num">1</span>Information We Collect</h2>
-            <p>We collect <strong>NO personal information</strong>. WorldArt operates completely offline and does not require any personal data to function.</p>
+            <p><strong>We collect NO personal information (PII).</strong> WorldArt operates primarily offline and does not require any personal data to function.</p>
             <ul>
-                <li><span class="cross">❌</span> No personal information</li>
-                <li><span class="cross">❌</span> No usage analytics</li>
-                <li><span class="cross">❌</span> No device identifiers</li>
-                <li><span class="cross">❌</span> No location data</li>
+                <li><span class="cross">❌</span> No name, email, phone number</li>
+                <li><span class="cross">❌</span> No location data or GPS tracking</li>
+                <li><span class="cross">❌</span> No device identifiers (IDFA/IDFV)</li>
+                <li><span class="cross">❌</span> No IP address logging</li>
                 <li><span class="cross">❌</span> No contact information</li>
+                <li><span class="cross">❌</span> No usage analytics or third-party trackers</li>
             </ul>
-
-            <h2><span class="section-num">2</span>How We Use Information</h2>
-            <p>Since we don't collect any information, we don't use any information. All data (favorites, settings, preferences) is stored locally on your device.</p>
-
-            <h2><span class="section-num">3</span>Data Storage</h2>
-            <p>All data is stored locally on your device using iOS's secure storage mechanisms:</p>
+            <p><strong>Local usage data only:</strong> The following data is stored <em>locally on your device</em> to improve your experience. It is <strong>never uploaded or shared</strong>:</p>
             <ul>
-                <li><span class="check">✅</span> User preferences stored in iOS UserDefaults</li>
-                <li><span class="check">✅</span> Favorites stored locally</li>
-                <li><span class="check">✅</span> No data sent to external servers</li>
-                <li><span class="check">✅</span> Data is deleted when you uninstall the app</li>
+                <li>Favorites list (artwork IDs you have favorited)</li>
+                <li>Language preferences &amp; app settings</li>
+                <li>Notification reminder time preferences</li>
+                <li>Text-to-speech voice selection preferences</li>
+                <li>First launch date &amp; favorite count (used solely to determine whether to show a rating prompt)</li>
             </ul>
 
-            <h2><span class="section-num">4</span>Third-Party Services</h2>
-            <p>WorldArt uses minimal third-party services:</p>
+            <h2><span class="section-num">2</span>Data Storage</h2>
+            <p>All user data is stored locally on your device:</p>
             <ul>
-                <li><strong>Apple App Store:</strong> For app distribution</li>
-                <li><strong>Apple StoreKit:</strong> For in-app purchases (handled by Apple)</li>
+                <li><span class="check">✅</span> Favorite data &amp; language settings saved in UserDefaults within the app sandbox</li>
+                <li><span class="check">✅</span> Image resource caches stored in the device's local cache directory</li>
+                <li><span class="check">✅</span> <strong>We cannot remotely access any of the data on your device</strong></li>
+                <li><span class="check">✅</span> Uninstalling this app will automatically delete all local data</li>
             </ul>
-            <p>We do not use any analytics, advertising, or tracking services. All artwork images are from <strong>Wikimedia Commons</strong> (public domain).</p>
+
+            <h2><span class="section-num">3</span>Third-Party SDKs &amp; Services</h2>
+            <p>This app integrates the following Apple official system frameworks. All are provided by Apple and are not controlled by third parties:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>SDK / Service</th>
+                        <th>Purpose</th>
+                        <th>Data Processing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>MapKit</strong></td>
+                        <td>Display artist locations on the map module</td>
+                        <td>Coordinate data is sent to Apple servers for map rendering; Apple's Privacy Policy applies</td>
+                    </tr>
+                    <tr>
+                        <td><strong>APNs</strong><br>(Push Notifications)</td>
+                        <td>Daily artwork reminder notifications</td>
+                        <td>Reminder content generated locally and delivered via Apple Push Notification Service only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AVSpeechSynthesis</strong><br>(TTS)</td>
+                        <td>Voice reading for artwork stories</td>
+                        <td>Text content processed by system speech engine locally; no external server transmission</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>We do NOT use:</strong></p>
+            <ul>
+                <li><span class="cross">❌</span> Any analytics services (Firebase Analytics, Google Analytics, etc.)</li>
+                <li><span class="cross">❌</span> Any advertising SDKs (AdMob, Unity Ads, etc.)</li>
+                <li><span class="cross">❌</span> Any crash reporting services (Crashlytics, Sentry, etc.)</li>
+                <li><span class="cross">❌</span> Any in-app purchase frameworks (StoreKit is NOT used — WorldArt has no purchases)</li>
+            </ul>
+            <p>All artwork images are sourced from <strong>Wikimedia Commons</strong> (Public Domain) or authorized open-source resources.</p>
+
+            <h2><span class="section-num">4</span>Permissions</h2>
+            <ul>
+                <li><strong>Notification permission:</strong> Requested <em>only</em> when you actively enable the "Daily Reminder" feature. You can disable it at any time in iOS Settings → Notifications.</li>
+                <li><strong>No other permissions:</strong> This app does <strong>NOT</strong> request Camera, Microphone, Photo Library, Location Services, Contacts, or any other sensitive permissions.</li>
+            </ul>
 
             <h2><span class="section-num">5</span>Children's Privacy</h2>
-            <p>WorldArt is safe for children of all ages. We don't collect any information from users of any age, including children under 13.</p>
+            <ul>
+                <li>This app is intended for general audiences and is not specifically designed for children</li>
+                <li>We do <strong>not</strong> intentionally collect personal information from children under 13 years of age</li>
+                <li>If you become aware that a child has provided us with personal information without parental consent, please <a href="#contact" style="color: #C9A96E;">contact us</a>, and we will promptly delete it</li>
+            </ul>
 
-            <h2><span class="section-num">6</span>Data Security</h2>
+            <h2><span class="section-num">6</span>Data Deletion</h2>
+            <p>You have full control over your local data:</p>
+            <ul>
+                <li><strong>Uninstall the app</strong> to permanently delete all locally stored data</li>
+                <li><strong>Clear image cache</strong> via in-app Settings → About (favorites are unaffected)</li>
+                <li>No need to request data deletion from us — there's nothing on our servers</li>
+            </ul>
+
+            <h2><span class="section-num">7</span>Data Security</h2>
             <p>Since no data leaves your device, your privacy is inherently protected:</p>
             <ul>
-                <li><span class="check">✅</span> No network connections required</li>
-                <li><span class="check">✅</span> No data transmission</li>
-                <li><span class="check">✅</span> All data stays on your device</li>
-                <li><span class="check">✅</span> Protected by iOS security features</li>
+                <li><span class="check">✅</span> All data stays within iOS app sandbox</li>
+                <li><span class="check">✅</span> Protected by iOS security features (encryption at rest)</li>
+                <li><span class="check">✅</span> No network connections required for core features</li>
+                <li><span class="check">✅</span> No account credentials to protect</li>
             </ul>
 
-            <h2><span class="section-num">7</span>Your Rights</h2>
-            <p>Since we don't collect any data, there's no data to access, modify, or delete. You have complete control over your local data:</p>
+            <h2><span class="section-num">8</span>Your Rights</h2>
+            <p>Since we don't collect any data, there's no remote data to access, modify, or delete. You have complete control over your local data:</p>
             <ul>
                 <li>Delete the app to remove all local data</li>
-                <li>Reset app data through iOS Settings</li>
-                <li>No need to request data deletion from us</li>
+                <li>Reset individual settings within the app</li>
+                <li>No need to submit data access or deletion requests</li>
             </ul>
 
-            <h2><span class="section-num">8</span>International Users</h2>
-            <p>WorldArt works the same way worldwide - completely offline with no data collection, regardless of your location.</p>
+            <h2><span class="section-num">9</span>International Users</h2>
+            <p>WorldArt works the same way worldwide — completely offline with no data collection, regardless of your location. The same privacy protections apply globally.</p>
 
-            <h2><span class="section-num">9</span>Privacy Policy Changes</h2>
-            <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date.</p>
+            <h2><span class="section-num">10</span>Privacy Policy Changes</h2>
+            <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated date and summary of changes.</p>
 
-            <h2><span class="section-num">10</span>Contact Us</h2>
+            <h2 id="contact"><span class="section-num">11</span>Contact Us</h2>
             <p>If you have any questions about this privacy policy, please contact us through:</p>
             <p>
-                📧 Email: <a href="mailto:seventiny007@126.com" style="color: #C9A96E;">seventiny007@126.com</a><br>
-                🌐 Technical Support: <a href="https://seventiny666.github.io/guessme-support/" style="color: #C9A96E;">https://seventiny666.github.io/guessme-support/</a>
+                📧 Email: <a href="mailto:seventiny666@gmail.com" style="color: #C9A96E;">seventiny666@gmail.com</a><br>
+                📱 App Store: Leave a message on the WorldArt app detail page
             </p>
 
             <div class="update-log">
-                <strong>📅 Last Updated:</strong> May 2026<br>
-                <strong>📋 Version:</strong> 1.10.0
+                <strong>📅 Last Updated:</strong> May 5, 2026<br>
+                <strong>📋 Version:</strong> 1.11.3
             </div>
 
             <p style="margin-top: 30px; text-align: center; color: #999;">
@@ -202,7 +276,7 @@
         </div>
 
         <div class="footer">
-            <p>© 2026 WorldArt. All rights reserved.</p>
+            <p>&copy; 2026 WorldArt. All rights reserved.</p>
             <p>All artwork images from <a href="https://commons.wikimedia.org/" target="_blank">Wikimedia Commons</a> (Public Domain)</p>
         </div>
     </div>
